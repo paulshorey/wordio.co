@@ -20,8 +20,12 @@ import { bindActionCreators } from "redux";
 import * as io_actions from "../../redux/actions/io";
 import * as ui_actions from "../../redux/actions/ui";
 import { _ } from "src/containers/Domains/Domains.styled";
+import { withRouter } from "next/router";
 
 const PRODUCTION = process.env.NODE_ENV !== "development";
+const NEXT_PUBLIC_SELF_PRODUCTION_HOST = "//" + process.env.NEXT_PUBLIC_SELF_PRODUCTION_HOST;
+console.log("NEXT_PUBLIC_SELF_PRODUCTION_HOST", NEXT_PUBLIC_SELF_PRODUCTION_HOST);
+console.log("process.env.NEXT_PUBLIC_SELF_PRODUCTION_HOST", process.env.NEXT_PUBLIC_SELF_PRODUCTION_HOST);
 
 export const BestaDomainsLogo = ({ home, io_actions } = {}) => (
   <StyledLogoLink>
@@ -59,8 +63,8 @@ export const WordioCoLogo = ({ home, io_actions } = {}) => (
           });
       }}
     >
-      <span className="color-accent">wordio</span>
-      <span className="color-subtle-light">
+      <span className="color-white">wordio</span>
+      <span className="color-attention">
         .<_ />
         co
       </span>
@@ -182,11 +186,8 @@ class ThisComponent extends React.Component {
   }
 
   render() {
-    let { home, domains, standalone, location = {}, wide, hidebeta } = this.props;
-    let Logo = BestaDomainsLogo;
-    if (location.host && (location.host.includes("word") || location.pathname.includes("word"))) {
-      Logo = WordioCoLogo;
-    }
+    let { home, domains, standalone, wide, hidebeta } = this.props;
+    let Logo = NEXT_PUBLIC_SELF_PRODUCTION_HOST === "//wordio.co" ? WordioCoLogo : BestaDomainsLogo;
 
     return (
       <StyledHeadContainer className={standalone ? "wrapInContainer" : ""}>
@@ -314,4 +315,5 @@ const mapStateToProps = function (state) {
     input_first_word: state.input.first_word
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(ThisComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ThisComponent));
+

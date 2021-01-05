@@ -19,7 +19,7 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon as FA } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
 import Header from "../Header";
-import Demo from "./Demo";
+// import Demo from "./Demo";
 // import { withRouter } from "next/router";
 // import { faAngleDown } from "@fortawesome/pro-solid-svg-icons"
 
