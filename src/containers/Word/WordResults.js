@@ -1,21 +1,21 @@
-import React from "react"
-import Link from "next/link"
-import FieldList from "./FieldList"
-import Field from "./Field"
-import Pos from "./Pos"
-import { StyledResults } from "./WordResults.styled"
-import { faEdit } from "@fortawesome/pro-solid-svg-icons/faEdit"
-import { FontAwesomeIcon as FA } from "@fortawesome/react-fontawesome"
-import DomExt from "../Admin/EditDomain/DomExt"
-import PosWord from "./PosWord"
-import Search from "../../components/Search"
+import React from "react";
+import Link from "next/link";
+import FieldList from "./FieldList";
+import Field from "./Field";
+import Pos from "./Pos";
+import { StyledResults } from "./WordResults.styled";
+import { faEdit } from "@fortawesome/pro-solid-svg-icons/faEdit";
+import { FontAwesomeIcon as FA } from "@fortawesome/react-fontawesome";
+import DomExt from "../Admin/EditDomain/DomExt";
+import PosWord from "./PosWord";
+import Search from "../../components/Search";
 
 export default function (props) {
   /*
    * User "container" state/props/methods!
    * This "child" component is to simplify container's render() logic.
    */
-  let that = props.that
+  let that = props.that;
   /*
    * Search
    */
@@ -42,41 +42,43 @@ export default function (props) {
       //   </span>
       // ]}
     />
-  )
+  );
   /*
    * Variables
    */
   // for content
-  let { word_input, word_chunks, api_actions } = that.props
+  let { word_input, word_chunks, api_actions } = that.props;
   if (word_input && !word_chunks[word_input]) {
     return (
       <>
         {SearchAndHeader}
         <StyledResults className="ViewWord content">
           {/*Edit*/}
-          <Link className={"editWordLink"} href={`/edit_word?str=${word_input}`}><a>
-            <FA icon={faEdit} className="faEdit" style={{ transform: "scale(0.85)" }} />
-          </a></Link>
+          <Link className={"editWordLink"} href={`/edit_word?str=${word_input}`}>
+            <a>
+              <FA icon={faEdit} className="faEdit" style={{ transform: "scale(0.85)" }} />
+            </a>
+          </Link>
 
           {/*Fields*/}
           <p>Word not found</p>
         </StyledResults>
       </>
-    )
+    );
   }
-  let row = word_chunks[word_input]
-  let domains = [...new Set((row.tlds || []).flat())]
-  let best_of = (row.pos_short || {}).all || []
+  let row = word_chunks[word_input];
+  let domains = [...new Set((row.tlds || []).flat())];
+  let best_of = (row.pos_short || {}).all || [];
 
-  let weird_abbreviation = false
+  let weird_abbreviation = false;
   if (row.abbreviation) {
     let arr = row.abbreviation
       .split(",")
       .map((str) => str.trim())
-      .filter((str) => !!str)
+      .filter((str) => !!str);
     for (let val of arr) {
       if (val.length > row.key.length) {
-        weird_abbreviation = true
+        weird_abbreviation = true;
       }
     }
   }
@@ -86,9 +88,11 @@ export default function (props) {
       {SearchAndHeader}
       <StyledResults className="ViewWord content">
         {/*Edit*/}
-        <Link className={"editWordLink"} href={`/edit_word?str=${row.key}`}><a>
-          <FA icon={faEdit} className="faEdit" style={{ transform: "scale(0.85)" }} />
-        </a></Link>
+        <Link className={"editWordLink"} href={`/edit_word?str=${row.key}`}>
+          <a>
+            <FA icon={faEdit} className="faEdit" style={{ transform: "scale(0.85)" }} />
+          </a>
+        </Link>
 
         {/*Key*/}
         {/*<p className="color-attention-dark">*/}
@@ -97,7 +101,7 @@ export default function (props) {
 
         {/*Fields*/}
         <div className={"ui-form-section ui-form-fieldset-grid"}>
-          {["proper", "root", "singular", "plural", "abbreviation", "acronym", "conjunction", "ws_sentiment"]
+          {["str", "proper", "root", "singular", "plural", "abbreviation", "acronym", "conjunction", "ws_sentiment"]
             .filter((field) => row[field] || row[field] === 0)
             .map((field, pi) => (
               <Field field={field} row={row} key={row.key + pi} />
@@ -162,5 +166,5 @@ export default function (props) {
         </div>
       </StyledResults>
     </>
-  )
+  );
 }

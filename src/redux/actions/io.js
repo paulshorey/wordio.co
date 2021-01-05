@@ -286,7 +286,7 @@ export function RX__search_suggestions(options = {}) {
     /*
      * set url
      */
-    Router.push("/search?str=" + encodeURIComponent(str) + "&tld=" + encodeURIComponent(tld));
+    Router.push("/domains?str=" + encodeURIComponent(str) + "&tld=" + encodeURIComponent(tld));
 
     /*
      * data

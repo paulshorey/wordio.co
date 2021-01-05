@@ -100,14 +100,24 @@ class AccountMenu extends React.Component {
         <div className="divider">Apps:</div>
         <Menu.Item>
           <h6>
-            <Link href="/">
+            <Link
+              href="/domains"
+              onClick={() => {
+                io_actions.RX__clear_inputs();
+              }}
+            >
               <a>Domain Suggestions</a>
             </Link>
           </h6>
         </Menu.Item>
         <Menu.Item>
           <h6>
-            <Link href="/word">
+            <Link
+              href="/word"
+              onClick={() => {
+                io_actions.RX__clear_inputs();
+              }}
+            >
               <a>Thesaurus</a>
             </Link>
           </h6>
@@ -164,7 +174,7 @@ class AccountMenu extends React.Component {
               </a>
             </Menu.Item>
             <Menu.Item className="small h6">
-              <Link href={"/domain" + "?str=better travel together&wordposs=1"}>
+              <Link href={"/domains" + "?str=better travel together&wordposs=1"}>
                 <a>
                   <b className="color-accent">Domain suggestions</b>
                 </a>
@@ -316,4 +326,3 @@ const mapStateToProps = function (state) {
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ThisComponent));
-

@@ -79,9 +79,9 @@ export default function (props) {
           </section>
 
           <section>
-            <h3 className="color-attention">Word breaking, tokenization, lemmatization. Even without spaces!</h3>
+            <h3 className="color-attention">Word breaking, tokenization, lemmatization...</h3>
             <p>
-              <i><b>API Coming soon:</b> to extract all possible meanings from a string with no spaces!</i>
+              <i><b>Coming soon:</b> extract words from a string with no spaces, and more text analysis APIs.</i>
             </p>
             <div className="text">
               <p>
