@@ -37,9 +37,9 @@ export default class MyDocument extends Document {
             content="Find the best available domain name. Our AI analyzes 2000 TLDs, and 10000000 synonyms, then generates 100s of available domain names."
           />
           <meta property="og:image" content="/gfx/square/avatar-og.png" />
-          <link rel="apple-touch-icon" sizes="180x180" href="/logo/favicon_package/apple-touch-icon.png">
-          <link rel="icon" type="image/png" sizes="32x32" href="/logo/favicon_package/favicon-32x32.png">
-          <link rel="icon" type="image/png" sizes="16x16" href="/logo/favicon_package/favicon-16x16.png">
+          <link rel="apple-touch-icon" sizes="180x180" href="/logo/favicon_package/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/logo/favicon_package/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/logo/favicon_package/favicon-16x16.png" />
         </Head>
         <body>
           <Main />
