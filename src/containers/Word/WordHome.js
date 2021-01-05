@@ -81,7 +81,7 @@ export default function (props) {
           <section>
             <h3 className="color-attention">Word breaking, tokenization, lemmatization. Even without spaces!</h3>
             <p>
-              <i>We can extract meaning from a string with no spaces! Even BERT does not do this.</i>
+              <i><b>API Coming soon:</b> to extract all possible meanings from a string with no spaces!</i>
             </p>
             <div className="text">
               <p>
@@ -92,23 +92,13 @@ export default function (props) {
               <p>
                 <i>Ex2: "</i>
                 <b>atotaleclipseofthesky</b>
-                <i>" returns </i>"<>a</> <b>total</b>(adj) <b>eclipse</b>(noun) <>of</> <>the</> <b>sky</b>(noun)" + "
+                <i>" returns </i>"<>a</> <b>total</b>(adj) <b>eclipse</b>(noun) <>of</> <>the</> <b>sun</b>(noun)" + "
                 <b>total eclipse</b>(noun)"
               </p>
               <p>
                 <i>Ex3: "</i>
                 <b>unitedstates</b>
                 <i>" returns </i>"<b>united</b>(adj) <b>states</b>(noun)" + "<b>united states</b>(noun)"
-              </p>
-            </div>
-          </section>
-
-          <section>
-            <h3 className="color-attention">API coming soon...</h3>
-            <div className="text">
-              <p>
-                Until then, try our <Link href="/">domain suggestions</Link>. Our API can analyze your input text (with
-                or without spaces), generate domain name phrases, and accurately match related TLDs.
               </p>
             </div>
           </section>
